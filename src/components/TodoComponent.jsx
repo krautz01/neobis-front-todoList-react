@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function TodoComponent(text, category, isFinished) {
+export default function TodoComponent(id, text, category, isFinished) {
   return (
-    <div className="todo-item">
+    <div className="todo-item" id={id}>
       <label>
         <input type="checkbox" checked={isFinished} />
         <span

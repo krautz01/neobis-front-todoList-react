@@ -34,12 +34,17 @@ function App() {
   };
 
   const addTask = (event) => {
-    task= {
+    task = {
       text: document.getElementById("content").value,
       category: document.querySelector('input[name="category"]:checked').value,
       isFinished: false,
-    }
+    };
     setTasks([...tasks, task]);
+  };
+
+  const changeStatus = (id) => {
+    const current = [...tasks].find((task) => task.id === id);
+    current.isFinished = !current.isFinished;
   };
 
   return (
@@ -64,7 +69,11 @@ function App() {
         <h3>TODO LIST</h3>
         <div className="list" id="todo-list">
           {tasks.map((task) => {
-            <TodoComponent text={task.text} category={task.category} />;
+            <TodoComponent
+              id={new Date().getTime()}
+              text={task.text}
+              category={task.category}
+            />;
           })}
         </div>
       </section>
