@@ -1,35 +1,75 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import TodoComponent from "./components/TodoComponent";
+import CreateTodoForm from "./components/CreateTodoForm";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState([
+    {
+      text: "Learn React",
+      category: "personal",
+      isFinished: false,
+    },
+    {
+      text: "Learn Node",
+      category: "personal",
+      isFinished: false,
+    },
+    {
+      text: "Learn Express",
+      category: "personal",
+      isFinished: false,
+    },
+    {
+      text: "Learn MongoDB",
+      category: "personal",
+      isFinished: false,
+    },
+  ]);
+  const [name, setName] = useState("");
+
+  const addUserName = () => {
+    setName(document.getElementById("name").value);
+    console.log(name);
+  };
+
+  const addTask = (event) => {
+    task= {
+      text: document.getElementById("content").value,
+      category: document.querySelector('input[name="category"]:checked').value,
+      isFinished: false,
+    }
+    setTasks([...tasks, task]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main className="app">
+      <section className="greeting">
+        <h2 className="title">
+          What's up,{" "}
+          <input
+            type="text"
+            id="name"
+            placeholder="Name here"
+            onChange={addUserName}
+          />
+        </h2>
+      </section>
+      <section className="create-todo">
+        <h3>CREATE A TODO</h3>
+        <CreateTodoForm addTask={addTask} />
+      </section>
+
+      <section className="todo-list">
+        <h3>TODO LIST</h3>
+        <div className="list" id="todo-list">
+          {tasks.map((task) => {
+            <TodoComponent text={task.text} category={task.category} />;
+          })}
+        </div>
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
