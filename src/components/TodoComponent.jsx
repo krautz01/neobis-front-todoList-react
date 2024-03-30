@@ -1,13 +1,26 @@
 import React from "react";
 
-export default function TodoComponent(id, text, category, isFinished) {
+export default function TodoComponent(
+  id,
+  text,
+  category,
+  isFinished,
+  changeStatus,
+  deleteTask
+) {
   return (
     <div className="todo-item" id={id}>
       <label>
-        <input type="checkbox" checked={isFinished} />
+        <input
+          type="checkbox"
+          checked={isFinished}
+          onClick={() => changeStatus(id)}
+        />
         <span
           className={
-            "bubble" ? (category = "personal") : (category = "business")
+            "bubble"((category = "personal"))
+              ? (category = "personal")
+              : (category = "business")
           }
         ></span>
       </label>
@@ -16,7 +29,7 @@ export default function TodoComponent(id, text, category, isFinished) {
       </div>
       <div className="actions">
         <button className="edit"></button>
-        <button className="delete"></button>
+        <button className="delete" onClick={() => deleteTask(id)}></button>
       </div>
     </div>
   );

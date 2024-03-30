@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function CreateTodoForm(addTask) {
+  const [title, setTitle] = useState("");
   return (
     <form id="new-todo-form">
       <h4>What's on your todo?</h4>
@@ -9,7 +10,8 @@ export default function CreateTodoForm(addTask) {
         placeholder="e.g. Get some milk"
         name="content"
         id="content"
-        onChange={addTask}
+        onChange={(e) => setTitle(e.target.value)}
+        value={title}
       />
       <h4>Pick a category</h4>
       <div className="options">
@@ -25,7 +27,11 @@ export default function CreateTodoForm(addTask) {
         </label>
       </div>
 
-      <input type="submit" value="Add todo" />
+      <input
+        type="submit"
+        value="Add todo"
+        onClick={(e) => e.key === "Enter" && addTask(title)}
+      />
     </form>
   );
 }
