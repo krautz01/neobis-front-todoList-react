@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "./TodoList.css";
 
-export default function TodoList(props) {
+export default function TodoList({ todo, deleteTodo, completeTodo }) {
   const [editableText, setEditableText] = useState(todo.text);
   const [isEditing, setIsEditing] = useState(false);
 

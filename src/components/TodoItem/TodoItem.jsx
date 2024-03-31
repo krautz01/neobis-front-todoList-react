@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import TodoList from "../TodoList/TodoList";
+import "./TodoItem.css";
 
 export default function TodoItem() {
   const [editableText, setEditableText] = useState("Name here");
   const [category, setCategory] = useState("personal");
   const [textTodo, setTextTodo] = useState("");
   const [id, setId] = useState(1);
-  const [todos, setTodos] = useState([]);
-
+  const [todos, setTodos] = useState();
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
   };
@@ -89,7 +90,7 @@ export default function TodoItem() {
       </div>
       {todos.length !== 0 ? (
         todos.map((todo) => (
-          <ToDoList
+          <TodoList
             todo={todo}
             key={todo.id}
             deleteTodo={deleteBtn}
