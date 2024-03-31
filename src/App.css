@@ -108,11 +108,17 @@ h4 {
   width: 50%;
 }
 
+/* greeting start */
+.greeting{
+  width: 100%;
+}
+
 .greeting .title {
   display: flex;
 }
 
 .greeting .title input {
+  width: 35rem;
   margin-left: 0.5rem;
   flex: 1 1 0%;
   min-width: 0;
