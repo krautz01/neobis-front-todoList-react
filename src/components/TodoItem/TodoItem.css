@@ -1,0 +1,155 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrapper__titleInput {
+  outline: none;
+  border: none;
+  font-size: 26px;
+  font-weight: 600;
+}
+.wrapper__title .edit {
+  border: none;
+  outline: none;
+}
+.wrapper__title {
+  margin: 40px 0 20px;
+  color: #272542;
+}
+.wrapper__description {
+  margin: 15px 0 8px;
+  color: #48465c;
+}
+.wrapper__todoText {
+  color: #7d7d7c;
+}
+.wrapper__todoInput {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  border-radius: 10px;
+  background: #fff;
+  border-style: none;
+  outline: none;
+  margin: 10px 0 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+.radio-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 90px;
+  width: 250px;
+  cursor: pointer;
+  -webkit-box-shadow: -6px -9px 19px 5px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -6px -9px 19px 5px rgba(34, 60, 80, 0.2);
+  box-shadow: -6px -9px 19px 5px rgba(34, 60, 80, 0.2);
+}
+.radio-title {
+  background-color: #ffffff;
+  margin-top: 7px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+.radio-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #e13699;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #e13699;
+}
+.radio-btn.business {
+  border-color: #4a4fd6;
+  box-shadow: 0 0 10px #4a4fd6;
+}
+
+.radio-btn::after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  transition: 0.1s ease-in-out;
+}
+.radio-btn.business::after {
+  background-color: #4a4fd6;
+}
+.radio-btn.personal::after {
+  background-color: #c62d85;
+}
+input:checked ~ .radio-btn::after {
+  width: 12px;
+  height: 12px;
+}
+
+.btn-wrapper {
+  max-width: 623px;
+}
+
+.wrapper__todo-text {
+  font-size: 20px;
+}
+
+.todo-list-radio {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.todo-task-text {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 500px;
+}
+
+.task-done {
+  text-decoration: line-through;
+}
+
+.btnAddTodo {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background: #3376ea;
+  margin-top: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.btnAddTodo:active {
+  box-shadow: 3px 3px 10px #3376ea inset;
+  transform: translateY(1px);
+  transition: 0.05s;
+}
+.btnAddTodo:hover {
+  box-shadow: 3px 3px 10px #3376ea;
+  border: none;
+  transition: 0.05s;
+}
